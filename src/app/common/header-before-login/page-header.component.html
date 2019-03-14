@@ -1,0 +1,20 @@
+<main>
+    <mat-toolbar>
+
+       <div class="app-header" [class.sync-Logo]="syncHeader">
+            <img class="imgHeader displayDesktop" src="assets/images/Logo_IHSS.png" alt="IHSS Website">
+
+            <div *ngIf="isHandheld">
+                <h1 class="ePortel text-nowrap ">
+                    {{ElectronicPortelStaticText}}
+                </h1>
+            </div>
+        </div>
+          <div class="displayHandheld ">
+
+            <span class="fill-remaining-space"></span>
+            <span><img class="img-m" src="assets/images/logo_IHSS_small.png"></span>
+            <span class="fill-remaining-space"></span>
+          </div>
+    </mat-toolbar>
+</main>

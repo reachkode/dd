@@ -1,0 +1,66 @@
+.imgHeader{
+    width:129px;
+    height: 43px;
+    float: left;
+  
+}
+mat-toolbar{
+    background-color: white!important;
+}
+a:focus img {
+    border: 1px solid skyblue;
+}
+
+a:focus span {
+     border: 1px solid skyblue;
+     background:white;
+     font-weight: normal;
+     
+}
+
+.app-header{
+    padding-left: 30px;
+}
+.sync-Logo{
+    margin-left: 15px;
+}
+
+.displayHandheld{
+    display: none;
+}
+
+.ePortel{
+    font-family: Helvetica Neue, sans-serif;
+    font-size:26px;
+    color: #06365e;
+    padding-top: 8px;
+    margin-left: 143px;
+    font-weight: bolder;
+}
+
+
+
+/*Img Header For Handheld*/
+@media all and (min-width: 320px) and (max-width: 768px)
+ {
+    .img-m  {
+        width:80px;
+        margin-left:90px;
+     
+    }
+    .fill-remaining-space {
+        flex: 1 1 auto;
+       }
+    .displayHandheld{
+        display: block;
+    }
+    .displayDesktop{
+        display:none;
+    }
+
+    mat-toolbar{
+       margin-top: 10px!important;
+    }
+  
+}
+

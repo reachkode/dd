@@ -1,0 +1,70 @@
+<mat-sidenav-container class="all-wrap" fullscreen>
+  <mat-sidenav #sidenav mode="over">
+
+    <mat-nav-list *ngIf="isProviderLoggedIn$ | async as isProviderLoggedIn">
+      <button type="button" mat-icon-button class="menu-button-pad" (click)="sidenav.close()" title="Close sidenav">
+        <mat-icon class="mat-icon-arrow">arrow_back</mat-icon>
+     
+      </button>
+     <span class="in-menu-pad"> Menu </span>
+      <!-- <provider-handheld-menu *ngFor="let item of navItemsProv" [item]="item"></provider-handheld-menu> -->
+      <span class="sidenav-menu-hl"></span>
+    </mat-nav-list>
+
+    <mat-nav-list *ngIf="isRecipientLoggedIn$ | async as isRecipientLoggedIn">
+        <button type="button" mat-icon-button  class="menu-button-pad" (click)="sidenav.close()" title="Close sidenav">
+            <mat-icon class="mat-icon-arrow">arrow_back</mat-icon>
+           
+          </button>
+          <span class="in-menu-pad">{{menu_text}}</span>
+          <!-- <recipient-handheld-menu *ngFor="let item of navItemsRecp" [item]="item" ></recipient-handheld-menu>  -->
+          <span class="sidenav-menu-hl"></span>
+        </mat-nav-list>
+
+  </mat-sidenav>
+
+  <div class="page-wrap">
+    <header class="background-header" *ngIf="isLoggedIn$ | async as isLoggedIn" role="banner">
+      <mat-toolbar *ngIf="isProviderLoggedIn$ | async as isProviderLoggedIn" color="primary">
+        <button type="button" mat-icon-button (click)="sidenav.open()" title="Open sidenav">
+          <mat-icon>menu</mat-icon>
+          </button>
+        Menu
+        <span class="fill-remaining-space"></span>
+        <span>
+          <a tabindex="1" id="HomeLink_IHSSLogo" routerLink="/provider-home" routerLinkActive="active-link">
+            <img class="img-width" src="assets/images/logo_IHSS_small.png">
+          </a>
+        </span>
+        <span class="fill-remaining-space"></span>
+        <button type="button" mat-button routerLink="/logout" routerLinkActive="active-link" title="Logout">
+          <span class="mat-toolbar-logout">Logout</span>
+          <mat-icon class="mat-toolbar-logout-icon">power_settings_new</mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <mat-toolbar *ngIf="isRecipientLoggedIn$ | async as isRecipientLoggedIn" color="primary">
+          <button type="button" mat-icon-button (click)="sidenav.open()" title="Open sidenav">
+            <mat-icon>menu</mat-icon>
+            </button>
+          {{menu_text}}
+          <span class="fill-remaining-space"></span>
+          <span>
+            <a tabindex="1" id="HomeLink_IHSSLogo" routerLink="/recipient-home" routerLinkActive="active-link">
+              <img class="img-width" src="assets/images/logo_IHSS_small.png">
+            </a>
+          </span>
+          <span class="fill-remaining-space"></span>
+          <button type="button" mat-button routerLink="/logout" routerLinkActive="active-link" title="Logout">
+            <span class="mat-toolbar-logout"> {{menu_recip_logout}}</span>
+            <mat-icon class="mat-toolbar-logout-icon">power_settings_new</mat-icon>
+          </button>
+        </mat-toolbar>
+      <div class="header-line"></div>
+    </header>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</mat-sidenav-container>

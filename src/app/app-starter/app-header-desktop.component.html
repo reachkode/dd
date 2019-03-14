@@ -1,0 +1,16 @@
+<div>
+    <div *ngIf="isLoggedIn$ | async as isLoggedIn">
+        <!-- Provider Header -->
+        <div *ngIf="isProviderLoggedIn$ | async as isProviderLoggedIn">
+           <!-- <provider-header></provider-header> -->
+            <!-- <provider-menu></provider-menu> -->
+        </div>
+
+        <!-- Recipient Header -->
+        <div *ngIf="isRecipientLoggedIn$ | async as isRecipientLoggedIn">
+             <!-- <recipient-header></recipient-header> -->
+            <!-- <recipient-menu></recipient-menu> -->
+        </div>
+         </div>
+
+</div>
